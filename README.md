@@ -1,11 +1,11 @@
 # cargo xtask
 
-cargo-xtask is way to add free-form automation to a Rust project, a-la `make` or bespoke bash scripts.
+cargo-xtask is way to add free-form automation to a Rust project, a-la `make`, `npm run` or bespoke bash scripts.
 
 The two distinguishing features of xtask are:
 
 * It doesn't require any other binaries besides `cargo` and `rustc`, it fully bootstraps from them
-* Unlike bash, it is cross platform
+* Unlike bash or `npm run`, it is cross platform, as it doesn't use the shell.
 
 ## How Does It Work?
 
@@ -50,12 +50,22 @@ Tasks can execute `cargo` (it is advisable to use `CARGO` environmental variable
 
 The `xtask` crate may or may not be a part of the main workspace.
 
+## Limitations
+
+xtasks do not integrate with Cargo lifecycle.
+If you need to do custom post-processing after `cargo build`, you'll need to define and call `cargo xtask build` task, which calls `cargo build` internally.
+There's no way to intercept stock `cargo build` command.
+
+It's impossible to use xtasks from dependencies, xtasks are project-local.
+However, it is possible to share logic for implementing common xtasks as crates.io packages.
+
 ## Using xtasks
 
 Use `cargo xtask task-name` command to run the task.
 
 Example:
-```
+
+```bash
 cargo xtask deploy
 ```
 
