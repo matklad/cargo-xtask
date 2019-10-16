@@ -49,8 +49,9 @@ Tasks are implemented in Rust, and can use arbitrary crates from crates.io.
 Tasks can execute `cargo` (it is advisable to use `CARGO` environmental variable to get the right `cargo`).
 
 The `xtask` crate may or may not be a part of the main workspace.
+Usually, but not always, the workspace setup is better.
 If `xtask` is a part of the workspace, you can share dependencies between `xtask` and main crates, and dependencies update process is easier.
-Additionally, you will be able to use `xtask = "run --package xtask"` as an alias, which might be more convenient.
+Additionally, you will be able to use `xtask = "run --package xtask"` as an alias, which works regardless of Cargo's working directory
 If `xtask` is not a part of the workspace, you can use different feature sets for shared dependencies, and you can cache `xtask/target` more easily on CI.
 It is advisable to commit `xtask` lockfile to the repository.
 
@@ -64,6 +65,8 @@ There's no way to intercept stock `cargo build` command.
 
 It's impossible to use xtasks from dependencies, xtasks are project-local.
 However, it is possible to share logic for implementing common xtasks as crates.io packages.
+
+If `xtask` is not a workspace member, `cargo xtask` will work only from the project's root directory.
 
 ## Using xtasks
 
