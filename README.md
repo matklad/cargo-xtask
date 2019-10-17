@@ -5,7 +5,7 @@ cargo-xtask is way to add free-form automation to a Rust project, a-la `make`, `
 The two distinguishing features of xtask are:
 
 * It doesn't require any other binaries besides `cargo` and `rustc`, it fully bootstraps from them
-* Unlike bash, it is cross platform, as it doesn't use the shell.
+* Unlike bash, it can more easily be cross platform, as it doesn't use the shell.
 
 ## How Does It Work?
 
@@ -22,7 +22,7 @@ In the root of the project, there should be a `./cargo/config` file with the fol
 
 ```toml
 [alias]
-xtask = "run --manifest-path ./xtask/Cargo.toml"
+xtask = "run --manifest-path ./xtask/Cargo.toml --"
 ```
 
 Example directory layout:
@@ -51,11 +51,13 @@ Tasks can execute `cargo` (it is advisable to use `CARGO` environmental variable
 The `xtask` crate may or may not be a part of the main workspace.
 Usually, but not always, the workspace setup is better.
 If `xtask` is a part of the workspace, you can share dependencies between `xtask` and main crates, and dependencies update process is easier.
-Additionally, you will be able to use `xtask = "run --package xtask"` as an alias, which works regardless of Cargo's working directory
+Additionally, you will be able to use `xtask = "run --package xtask --"` as an alias, which works regardless of Cargo's working directory
 If `xtask` is not a part of the workspace, you can use different feature sets for shared dependencies, and you can cache `xtask/target` more easily on CI.
 It is advisable to commit `xtask` lockfile to the repository.
 
 It is advisable to minimize the compile time of xtasks.
+
+You can find some examples of xtasks in the [`./examples`](https://github.com/matklad/cargo-xtask/blob/master/examples) directory in this repository.
 
 ## Limitations
 
@@ -94,7 +96,7 @@ If you feel an important common task is missing, feel free to submit a PR!
 
 ### `cargo xtask`, `cargo xtask --help`
 
-When run without argument or with the `--help` argument, `xtask` should print a help message which lists available tasks and contains the link to this specification.
+When run without argument or with the `--help` argument, `xtask` should print a help message which lists available tasks.
 
 ### `cargo xtask dist`
 
