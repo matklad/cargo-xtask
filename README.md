@@ -18,7 +18,7 @@ This repository serves as a specification of such configuration.
 ## Defining xtasks
 
 In the root of the project repository, there should be an `xtask` directory, which is a cargo crate with one binary target.
-In the root of the project, there should be a `./cargo/config` file with the following entry:
+In the root of the project, there should be a `.cargo/config` (note the dot) file with the following entry:
 
 ```toml
 [alias]
@@ -42,7 +42,7 @@ Example directory layout:
       main.rs
 ```
 
-Both `xtask` directory and `./cargo/config` should be committed to the version control system.
+Both `xtask` directory and `.cargo/config` should be committed to the version control system.
 
 The `xtask` binary should expect at least one positional argument, which is a name of the task to be executed.
 Tasks are implemented in Rust, and can use arbitrary crates from crates.io.
@@ -58,6 +58,9 @@ It is advisable to commit `xtask` lockfile to the repository.
 It is advisable to minimize the compile time of xtasks.
 
 You can find some examples of xtasks in the [`./examples`](https://github.com/matklad/cargo-xtask/blob/master/examples) directory in this repository.
+
+The current recommendation is to define various task as subcommands of the single `xtask` binary.
+An alternative is to use a separate binary and a separate entry in `.cargo/config` for each task.
 
 ## Limitations
 
