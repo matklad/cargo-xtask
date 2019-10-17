@@ -104,6 +104,8 @@ The precise meaning of artifacts is not defined, but, for a CLI tool, you can ex
 The `dist` command should clean the `./target/dist` directory before populating it with artifacts.
 It is expected that the `dist` command calls `cargo build --release` internally.
 
+See [#3](https://github.com/matklad/cargo-xtask/issues/3) for additional discussion.
+
 ### `cargo xtask codegen`
 
 This command should run code generation, which happens outside of `build.rs`.
