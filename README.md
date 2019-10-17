@@ -5,7 +5,7 @@ cargo-xtask is way to add free-form automation to a Rust project, a-la `make`, `
 The two distinguishing features of xtask are:
 
 * It doesn't require any other binaries besides `cargo` and `rustc`, it fully bootstraps from them
-* Unlike bash or `npm run`, it is cross platform, as it doesn't use the shell.
+* Unlike bash, it is cross platform, as it doesn't use the shell.
 
 ## How Does It Work?
 
