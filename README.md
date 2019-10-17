@@ -7,6 +7,12 @@ The two distinguishing features of xtask are:
 * It doesn't require any other binaries besides `cargo` and `rustc`, it fully bootstraps from them
 * Unlike bash, it can more easily be cross platform, as it doesn't use the shell.
 
+## Status
+
+cargo-xtask is neither an officially recommended workflow, nor a de-facto standard (yet?).
+It might or might not work for your use case.
+Moreover, xtask is new, so expect changes!
+
 ## How Does It Work?
 
 cargo-xtask is a polyfill for [cargo workflows](http://aturon.github.io/tech/2018/04/05/workflows/) feature.
