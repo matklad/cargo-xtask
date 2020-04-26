@@ -21,6 +21,12 @@ It is a way to extend stock, stable cargo with custom commands (`xtasks`), writt
 This polyfill doesn't need any code, just a particular configuration of a cargo project.
 This repository serves as a specification of such configuration.
 
+## Installation
+
+```sh
+cargo install --git https://github.com/matklad/cargo-xtask xtask
+```
+
 ## Defining xtasks
 
 In the root of the project repository, there should be an `xtask` directory, which is a cargo crate with one binary target.
