@@ -23,39 +23,82 @@ This repository serves as a specification of such configuration.
 
 ## Defining xtasks
 
-In the root of the project repository, there should be an `xtask` directory, which is a cargo crate with one binary target.
-In the root of the project, there should be a `.cargo/config` (note the dot) file with the following entry:
+The best way to create an xtask is to do so inside of a Cargo workspace. If you don't have a workspace already,
+you can create one inside your package by moving the contents into a new directory. Let's say that our package
+is named "testing." We first move everything into a sub-directory:
+
+```console
+$ mkdir testing
+
+# then move all of the stuff except your .git directory into the new testing directory:
+$ mv src testing
+$ mv Cargo.toml testing
+$ mv .gitignore testing
+$ mv README.md testing
+
+# Don't forget anything else your package may have.
+```
+
+Then, add a new package named `xtask`:
+
+```console
+$ cargo new --bin xtask
+```
+
+Then, we need to create a `Cargo.toml` for our workspace:
+
+```toml
+[workspace]
+members = [
+    "testing",
+    "xtask",
+]
+```
+
+If you had a workspace previously, you'd add `xtask` to your existing workspace `Cargo.toml`.
+
+Then, the alias. This is where the magic happens. Create a `.cargo`:
+
+```console
+$ mdkir .cargo
+```
+
+and create a file in it named `config` with these contents:
 
 ```toml
 [alias]
-xtask = "run --manifest-path ./xtask/Cargo.toml --"
+xtask = "run --package xtask --"
 ```
+
 
 Example directory layout:
 
 ```
-/my-project
+/testing
   .git
-  .gitignore
   .cargo/
     config
   Cargo.toml
-  src/
-    lib.rs
+  testing/
+    Cargo.toml
+    .gitignore
+    src/
+      lib.rs
   xtask/
     Cargo.toml
     src/
       main.rs
 ```
 
-Both `xtask` directory and `.cargo/config` should be committed to the version control system.
+Both the `xtask` directory and the `.cargo/config` should be committed to the version control system.
+
+If you don't want to use a workspace, you can use `run --manifest-path ./xtask/Cargo.toml --` for the alias, but this is not recommended.
 
 The `xtask` binary should expect at least one positional argument, which is a name of the task to be executed.
 Tasks are implemented in Rust, and can use arbitrary crates from crates.io.
 Tasks can execute `cargo` (it is advisable to use `CARGO` environmental variable to get the right `cargo`).
 
-The `xtask` crate may or may not be a part of the main workspace.
-Usually, but not always, the workspace setup is better.
+The `xtask` crate may or may not be a part of the main workspace. Usually, but not always, the workspace setup is better.
 If `xtask` is a part of the workspace, you can share dependencies between `xtask` and main crates, and dependencies update process is easier.
 Additionally, you will be able to use `xtask = "run --package xtask --"` as an alias, which works regardless of Cargo's working directory
 If `xtask` is not a part of the workspace, you can use different feature sets for shared dependencies, and you can cache `xtask/target` more easily on CI.
