@@ -11,7 +11,6 @@ The two distinguishing features of xtask are:
 
 cargo-xtask is neither an officially recommended workflow, nor a de-facto standard (yet?).
 It might or might not work for your use case.
-Moreover, xtask is new, so expect changes!
 
 ## How Does It Work?
 
