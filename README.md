@@ -185,7 +185,9 @@ See [#1](https://github.com/matklad/cargo-xtask/issues/1) for discussion.
 
 ## Tooling
 
-There's no specific tooling to support xtasks at the moment.
+Libraries:
+- [devx](https://github.com/elastio/devx): collection of useful utilities (spawning processes, git pre-commit hooks, etc.)
+
 If you write tools or libraries for xtasks, send a PR to this document.
 Some possible ideas:
 
