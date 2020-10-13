@@ -7,6 +7,12 @@ The two distinguishing features of xtask are:
 * It doesn't require any other binaries besides `cargo` and `rustc`, it fully bootstraps from them
 * Unlike bash, it can more easily be cross platform, as it doesn't use the shell.
 
+## Installation
+
+```
+$ cargo install cargo-xtask
+```
+
 ## Status
 
 cargo-xtask is neither an officially recommended workflow, nor a de-facto standard (yet?).
