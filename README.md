@@ -186,6 +186,8 @@ See [#1](https://github.com/matklad/cargo-xtask/issues/1) for discussion.
 
 Libraries:
 - [devx](https://github.com/elastio/devx): collection of useful utilities (spawning processes, git pre-commit hooks, etc.)
+- [xshell](https://github.com/matklad/xshell): ergonomic "bash" scripting in Rust
+- [duct](https://github.com/oconnor663/duct.rs): a library for running child processes with support for pipelines and IO redirection
 
 If you write tools or libraries for xtasks, send a PR to this document.
 Some possible ideas:
