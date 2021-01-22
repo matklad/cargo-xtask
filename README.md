@@ -59,7 +59,7 @@ If you had a workspace previously, you'd add `xtask` to your existing workspace 
 Then, the alias. This is where the magic happens. Create a `.cargo`:
 
 ```console
-$ mdkir .cargo
+$ mkdir .cargo
 ```
 
 and create a file in it named `config` with these contents:
