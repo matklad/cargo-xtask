@@ -66,9 +66,8 @@ and create a file in it named `config` with these contents:
 
 ```toml
 [alias]
-xtask = "run --package xtask --"
+xtask = "run --locked --package xtask --"
 ```
-
 
 Example directory layout:
 
@@ -139,6 +138,22 @@ xtasks are entirely optional, and you don't have to use them!
 In particular, if, for your purposes, `cargo build` and `cargo test` are enough, don't use xtasks.
 If you prefer to write a short bash script, and don't need to support windows, there's no need to use xtasks either.
 
+## The cargo config file
+
+One of the nicest things about xtask is that it uses a cargo alias to make it look like a "real" Cargo command.
+Here's the contents of `.cargo/config` that sets the alias:
+
+```toml
+[alias]
+xtask = "run --locked --package xtask --"
+```
+
+Note that 
+
+- `cargo xtask` is transformed into a `cargo run` command, calling the local `xtask` package.
+- the `--locked` means that act of running an xtask itself will not touch the `Cargo.lock` file. 
+- the `--` means further arguments to `cargo xtask` will be passed to the `xtask` package.
+
 ## Standard xtasks
 
 The following specifies the names and behaviors of some common xtasks, to help establish common conventions.
@@ -192,7 +207,7 @@ Libraries:
 If you write tools or libraries for xtasks, send a PR to this document.
 Some possible ideas:
 
-* cargo subcomand to generate `xtask` template
+* cargo subcommand to generate `xtask` template
 * implementations of common xtasks, like "check that code is formatted with rustfmt" or "build completions for a clap app", as libraries.
 
 ## Background
