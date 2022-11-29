@@ -62,7 +62,7 @@ Then, the alias. This is where the magic happens. Create a `.cargo`:
 $ mkdir .cargo
 ```
 
-and create a file in it named `config` with these contents:
+and create a file in it named `config.toml` with these contents:
 
 ```toml
 [alias]
