@@ -17,7 +17,7 @@ fn main() {
 
 fn try_main() -> Result<(), DynError> {
     let task = env::args().nth(1);
-    match task.as_ref().map(|it| it.as_str()) {
+    match task.as_deref() {
         Some("dist") => dist()?,
         _ => print_help(),
     }
