@@ -110,6 +110,14 @@ You can find some examples of xtasks in the [`./examples`](https://github.com/ma
 The current recommendation is to define various task as subcommands of the single `xtask` binary.
 An alternative is to use a separate binary and a separate entry in `.cargo/config` for each task.
 
+## External examples
+
+- [rust-analyzer](https://github.com/rust-lang/rust-analyzer/tree/master/xtask): Releasing, performance metrics, and much more.
+- [helix-editor/helix](https://github.com/helix-editor/helix/tree/master/xtask): Validating embedded query files, generating docs.
+- [containers/bootc](https://github.com/containers/bootc/tree/main/xtask): Generates RPMs, custom lints for `dbg!`.
+
+And many more examples can be found via e.g. [Github Code search](https://cs.github.com/?scopeName=All+repos&scope=&q=lang%3Arust+path%3Axtask).
+
 ## Limitations
 
 xtasks do not integrate with Cargo lifecycle.
