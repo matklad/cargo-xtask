@@ -99,7 +99,7 @@ Tasks can execute `cargo` (it is advisable to use `CARGO` environmental variable
 
 The `xtask` crate may or may not be a part of the main workspace. Usually, but not always, the workspace setup is better.
 If `xtask` is a part of the workspace, you can share dependencies between `xtask` and main crates, and dependencies update process is easier.
-Additionally, you will be able to use `xtask = "run --package xtask --"` as an alias, which works regardless of Cargo's working directory
+Additionally, you will be able to use `xtask = "run --package xtask --"` as an alias, which works regardless of Cargo's working directory.
 If `xtask` is not a part of the workspace, you can use different feature sets for shared dependencies, and you can cache `xtask/target` more easily on CI.
 It is advisable to commit `xtask` lockfile to the repository.
 
