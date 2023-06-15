@@ -30,10 +30,10 @@ is named "testing." We first move everything into a sub-directory:
 $ mkdir testing
 
 # then move all of the stuff except your .git directory into the new testing directory:
-$ mv src testing
-$ mv Cargo.toml testing
-$ mv .gitignore testing
-$ mv README.md testing
+$ git mv src testing
+$ git mv Cargo.toml testing
+$ git mv .gitignore testing
+$ git mv README.md testing
 
 # Don't forget anything else your package may have.
 ```
