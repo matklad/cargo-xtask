@@ -4,8 +4,8 @@ cargo-xtask is way to add free-form automation to a Rust project, a-la `make`, `
 
 The two distinguishing features of xtask are:
 
-* It doesn't require any other binaries besides `cargo` and `rustc`, it fully bootstraps from them
-* Unlike bash, it can more easily be cross platform, as it doesn't use the shell.
+- It doesn't require any other binaries besides `cargo` and `rustc`, it fully bootstraps from them
+- Unlike bash, it can more easily be cross platform, as it doesn't use the shell.
 
 ## Status
 
@@ -69,10 +69,9 @@ and create a file in it named `config.toml` with these contents:
 xtask = "run --package xtask --"
 ```
 
-
 Example directory layout:
 
-```
+```text
 /testing
   .git
   .cargo/
@@ -160,7 +159,7 @@ When run without argument or with the `--help` argument, `xtask` should print a 
 
 ### `cargo xtask dist`
 
-This should *package* the software and produce a set of distributable artifacts.
+This should _package_ the software and produce a set of distributable artifacts.
 Artifacts should be placed into `./target/dist` directory.
 The precise meaning of artifacts is not defined, but, for a CLI tool, you can expect the binary itself (build in release mode and stripped), man pages and shell completion files.
 The `dist` command should clean the `./target/dist` directory before populating it with artifacts.
@@ -194,6 +193,7 @@ See [#1](https://github.com/matklad/cargo-xtask/issues/1) for discussion.
 ## Tooling
 
 Libraries:
+
 - [devx](https://github.com/elastio/devx): collection of useful utilities (spawning processes, git pre-commit hooks, etc.)
 - [xshell](https://github.com/matklad/xshell): ergonomic "bash" scripting in Rust
 - [duct](https://github.com/oconnor663/duct.rs): a library for running child processes with support for pipelines and IO redirection
@@ -201,8 +201,8 @@ Libraries:
 If you write tools or libraries for xtasks, send a PR to this document.
 Some possible ideas:
 
-* cargo subcomand to generate `xtask` template
-* implementations of common xtasks, like "check that code is formatted with rustfmt" or "build completions for a clap app", as libraries.
+- cargo subcomand to generate `xtask` template
+- implementations of common xtasks, like "check that code is formatted with rustfmt" or "build completions for a clap app", as libraries.
 
 ## Background
 
