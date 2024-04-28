@@ -76,7 +76,7 @@ Example directory layout:
 /testing
   .git
   .cargo/
-    config
+    config.toml
   Cargo.toml
   testing/
     Cargo.toml
