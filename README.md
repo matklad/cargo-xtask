@@ -151,44 +151,16 @@ If you prefer to write a short bash script, and don't need to support windows, t
 
 ## Standard xtasks
 
-The following specifies the names and behaviors of some common xtasks, to help establish common conventions.
-If you want to tweak behavior of a standard task for your project, you can add custom flags to it.
-If you feel an important common task is missing, feel free to submit a PR!
+In theory, it might be beneficial to specify a convention for some common tasks to enable high order
+tooling. For example, if many CLI applications can provide `cargo xtask dist` which builds a
+distribution of the application in questions (compiled binary + man pages + shell completions + any
+other auxiliary resources), that could be re-used by downstream Linux distributions to package Rust
+applications in a uniform way.
 
-### `cargo xtask`, `cargo xtask --help`
-
-When run without argument or with the `--help` argument, `xtask` should print a help message which lists available tasks.
-
-### `cargo xtask dist`
-
-This should *package* the software and produce a set of distributable artifacts.
-Artifacts should be placed into `./target/dist` directory.
-The precise meaning of artifacts is not defined, but, for a CLI tool, you can expect the binary itself (build in release mode and stripped), man pages and shell completion files.
-The `dist` command should clean the `./target/dist` directory before populating it with artifacts.
-It is expected that the `dist` command calls `cargo build --release` internally.
-
-See [#3](https://github.com/matklad/cargo-xtask/issues/3) for additional discussion.
-
-### `cargo xtask codegen`
-
-This command should run code generation, which happens outside of `build.rs`.
-For example, if you are writing a gPRC server, and would like to commit the generated code into the repository (so that the clients don't have to have `protoc` installed), you can implement code generation as `cargo xtask codegen`.
-
-### `cargo xtask ci`
-
-This task should run `cargo test` and any additional checks that are required on CI, like checking formatting, running `miri` test, checking links in the documentation.
-The CI configuration should generally look like this:
-
-```yaml
-script:
-  - cargo xtask ci
-```
-
-The expectation is that, if `cargo xtask ci` passes locally, the CI will be green as well.
-
-You don't need this task if `cargo test` is enough for your purposes.
-Moreover, there are certain tradeoffs associated with using xtasks instead of CI provider's built-in ways to specify CI process.
-So, we do not recommend to blindly use `xtask ci` over `.travis.yml`, but, if you want to use xtasks for CI, use `ci` as the name of the task.
+To my knowledge, no such conventional xtasks emerged so far. If you think it will be a good idea to
+codify some repeating patterns, consider publishing your own specification (e.g., create
+`cargo-xtask-dist` repository). If it catches up (used by at least three different projects by
+different authors), please send a PR to this document with a link to the spec.
 
 See [#1](https://github.com/matklad/cargo-xtask/issues/1) for discussion.
 
