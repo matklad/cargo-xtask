@@ -11,7 +11,7 @@ The two distinguishing features of xtask are:
 
 cargo-xtask is not an officially recommended workflow, but it is a somewhat common pattern across
 the ecosystem. Notably, Cargo itself
-[uses xtasks](https://github.com/rust-lang/cargo/blob/cbca426209d53c45a835b04ddaed2387a2334058/.cargo/config.toml#L2-L4).
+[uses xtasks](https://github.com/rust-lang/cargo/blob/0.78.0/.cargo/config.toml#L2-L4).
 
 ## How Does It Work?
 
