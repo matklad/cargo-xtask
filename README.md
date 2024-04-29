@@ -57,7 +57,7 @@ members = [
 
 If you had a workspace previously, you'd add `xtask` to your existing workspace `Cargo.toml`.
 
-Then, the alias. This is where the magic happens. Create a `.cargo`:
+Then, the alias. **This is where the magic happens**. Create a `.cargo`:
 
 ```console
 $ mkdir .cargo
