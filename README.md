@@ -7,19 +7,21 @@ The two distinguishing features of xtask are:
 * It doesn't require any other binaries besides `cargo` and `rustc`, it fully bootstraps from them
 * Unlike bash, it can more easily be cross platform, as it doesn't use the shell.
 
-## Status
-
-cargo-xtask is not an officially recommended workflow, but it is a somewhat common pattern across
-the ecosystem. Notably, Cargo itself
-[uses xtasks](https://github.com/rust-lang/cargo/blob/0.78.0/.cargo/config.toml#L2-L4).
-
-## How Does It Work?
+## How Does it Work?
 
 cargo-xtask is a polyfill for [cargo workflows](http://aturon.github.io/tech/2018/04/05/workflows/) feature.
 It is a way to extend stock, stable cargo with custom commands (`xtasks`), written in Rust.
 
 This polyfill doesn't need any code, just a particular configuration of a cargo project.
 This repository serves as a specification of such configuration.
+
+## Status
+
+cargo-xtask is not an officially recommended workflow, but it is a somewhat common pattern across
+the ecosystem. Notably, Cargo itself
+[uses xtasks](https://github.com/rust-lang/cargo/blob/0.78.0/.cargo/config.toml#L2-L4).
+
+It might or might not work for your use case!
 
 ## Defining xtasks
 
