@@ -120,7 +120,7 @@ An alternative is to use a separate binary and a separate entry in `.cargo/confi
 - [containers/bootc](https://github.com/containers/bootc/tree/main/xtask): Generates RPMs, custom lints for `dbg!`.
 - [rust-lang/cargo](https://github.com/rust-lang/cargo/blob/e5e68c4093af9de3f80e9427b979fa5a0d8361cc/.cargo/config.toml#L1-L4): These days, even Cargo itself uses this pattern!
 
-And many more examples can be found via e.g. [Github Code search](https://cs.github.com/?scopeName=All+repos&scope=&q=lang%3Arust+path%3Axtask).
+And many more examples can be found via e.g. [Github Code search](https://github.com/search?type=code&q=lang%3Arust+path%3Axtask).
 
 ## Limitations
 
