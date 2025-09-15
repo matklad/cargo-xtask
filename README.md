@@ -117,7 +117,7 @@ An alternative is to use a separate binary and a separate entry in `.cargo/confi
 
 - [rust-analyzer](https://github.com/rust-lang/rust-analyzer/tree/master/xtask): Releasing, performance metrics, and much more.
 - [helix-editor/helix](https://github.com/helix-editor/helix/tree/master/xtask): Validating embedded query files, generating docs.
-- [containers/bootc](https://github.com/containers/bootc/tree/main/xtask): Generates RPMs, custom lints for `dbg!`.
+- [containers/bootc](https://github.com/bootc-dev/bootc/tree/main/crates/xtask): Generates RPMs, custom lints for `dbg!`.
 - [rust-lang/cargo](https://github.com/rust-lang/cargo/blob/e5e68c4093af9de3f80e9427b979fa5a0d8361cc/.cargo/config.toml#L1-L4): These days, even Cargo itself uses this pattern!
 
 And many more examples can be found via e.g. [Github Code search](https://github.com/search?type=code&q=lang%3Arust+path%3Axtask).
