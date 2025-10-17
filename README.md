@@ -92,7 +92,7 @@ Example directory layout:
       main.rs
 ```
 
-Both the `xtask` directory and the `.cargo/config` should be committed to the version control system.
+Both the `xtask` directory and the `.cargo/config.toml` should be committed to the version control system.
 
 If you don't want to use a workspace, you can use `run --manifest-path ./xtask/Cargo.toml --` for the alias, but this is not recommended.
 
@@ -111,7 +111,7 @@ It is advisable to minimize the compile time of xtasks.
 You can find some examples of xtasks in the [`./examples`](https://github.com/matklad/cargo-xtask/blob/master/examples) directory in this repository.
 
 The current recommendation is to define various task as subcommands of the single `xtask` binary.
-An alternative is to use a separate binary and a separate entry in `.cargo/config` for each task.
+An alternative is to use a separate binary and a separate entry in `.cargo/config.toml` for each task.
 
 ## External examples
 
