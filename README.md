@@ -26,9 +26,10 @@ It might or might not work for your use case!
 ## Defining xtasks
 
 The best way to create an xtask is to do so inside of a Cargo workspace. If you don't have a workspace already,
-create one, and move testing to it. Also, `testing/.git` must be moved to the workspace dir.
+create one as a sibling of `testing`. We should end up with `some_dir/my_workspace`, `some_dir/testing`. Move `testing/.git` to the `my_workspace`, and finally move `testing` to `my_workspace`.
 
 ```console
+# my_workspace as sibling of testing
 mkdir my_workspace
 # move .git
 mv testing/.git my_workspace
