@@ -70,7 +70,7 @@ xtask = "run --package xtask --"
 Example directory layout:
 
 ```
-/testing
+/my_workspace
   .git
   .cargo/
     config.toml
@@ -88,7 +88,7 @@ Example directory layout:
 
 Both the `xtask` directory and the `.cargo/config` should be committed to the version control system.
 
-If you don't want to use a workspace, you can use `run --manifest-path ./xtask/Cargo.toml --` for the alias, but this is not recommended.
+If you don't want to use a workspace, you can use `run --manifest-path ./xtask/Cargo.toml --` for the alias (as in the example folder), but this is not recommended.
 
 The `xtask` binary should expect at least one positional argument, which is a name of the task to be executed.
 Tasks are implemented in Rust, and can use arbitrary crates from crates.io.
