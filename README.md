@@ -30,9 +30,11 @@ you can create one inside your package by moving the contents into a new directo
 is named "testing." Move everything but `.git` into it:
 
 ```console
-# in parent of "testing"
+# new my_workspace directory as a sibling of testing
 mkdir my_workspace
+# extract ".git"
 mv testing/.git my_workspace
+# move member into workspace
 mv testing my_workspace
 cd my_workspace
 ```
