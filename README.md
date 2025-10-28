@@ -27,18 +27,14 @@ It might or might not work for your use case!
 
 The best way to create an xtask is to do so inside of a Cargo workspace. If you don't have a workspace already,
 you can create one inside your package by moving the contents into a new directory. Let's say that our package
-is named "testing." We first move everything into a sub-directory:
+is named "testing." Move everything but `.git` into it:
 
 ```console
+# in parent of "testing"
 mkdir my_workspace
-
-# next move all of the stuff except your .git directory into the new workspace:
-mv src my_workspace
-mv Cargo.toml my_workspace
-mv .gitignore my_workspace
-mv README.md my_workspace
-
-# and move any other files or folders your package may have.
+mv testing/.git my_workspace
+mv testing my_workspace
+cd my_workspace
 ```
 
 Then, add a new package named `xtask`:
