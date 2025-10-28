@@ -30,15 +30,15 @@ you can create one inside your package by moving the contents into a new directo
 is named "testing." We first move everything into a sub-directory:
 
 ```console
-mkdir testing
+mkdir my_workspace
 
-# next move all of the stuff except your .git directory into the new testing directory:
-mv src testing
-mv Cargo.toml testing
-mv .gitignore testing
-mv README.md testing
+# next move all of the stuff except your .git directory into the new workspace:
+mv src my_workspace
+mv Cargo.toml my_workspace
+mv .gitignore my_workspace
+mv README.md my_workspace
 
-# Do not forget other files your package may have.
+# and move any other files or folders your package may have.
 ```
 
 Then, add a new package named `xtask`:
@@ -76,7 +76,7 @@ xtask = "run --package xtask --"
 Example directory layout:
 
 ```
-/testing
+/my_workspace
   .git
   .cargo/
     config.toml
