@@ -25,26 +25,20 @@ It might or might not work for your use case!
 
 ## Defining xtasks
 
-The best way to create an xtask is to do so inside of a Cargo workspace. If you don't have a workspace already,
-you can create one inside your package by moving the contents into a new directory. Let's say that our package
-is named "testing." We first move everything into a sub-directory:
+The best way to create an xtask is to do so inside of a Cargo workspace. If you don't have a workspace already you can issue the steps below. We should end up with `my_workspace/.git`, `my_workspace/testing` where `testing` is your package name:
 
 ```console
-$ mkdir testing
-
-# then move all of the stuff except your .git directory into the new testing directory:
-$ mv src testing
-$ mv Cargo.toml testing
-$ mv .gitignore testing
-$ mv README.md testing
-
-# Don't forget anything else your package may have.
+mkdir my_workspace
+# the original .git must be moved to my_workspace
+mv testing/.git my_workspace
+mv testing my_workspace
+cd my_workspace
 ```
 
 Then, add a new package named `xtask`:
 
 ```console
-$ cargo new --bin xtask
+cargo new --bin xtask
 ```
 
 Then, we need to create a `Cargo.toml` for our workspace:
