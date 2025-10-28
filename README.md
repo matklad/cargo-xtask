@@ -30,21 +30,21 @@ you can create one inside your package by moving the contents into a new directo
 is named "testing." We first move everything into a sub-directory:
 
 ```console
-$ mkdir testing
+mkdir testing
 
-# then move all of the stuff except your .git directory into the new testing directory:
-$ mv src testing
-$ mv Cargo.toml testing
-$ mv .gitignore testing
-$ mv README.md testing
+# next move all of the stuff except your .git directory into the new testing directory:
+mv src testing
+mv Cargo.toml testing
+mv .gitignore testing
+mv README.md testing
 
-# Don't forget anything else your package may have.
+# Do not forget other files your package may have.
 ```
 
 Then, add a new package named `xtask`:
 
 ```console
-$ cargo new --bin xtask
+cargo new --bin xtask
 ```
 
 Then, we need to create a `Cargo.toml` for our workspace:
@@ -62,7 +62,7 @@ If you had a workspace previously, you'd add `xtask` to your existing workspace 
 Then, the alias. **This is where the magic happens**. Create a `.cargo`:
 
 ```console
-$ mkdir .cargo
+mkdir .cargo
 ```
 
 and create a file in it named `config.toml` with these contents:
